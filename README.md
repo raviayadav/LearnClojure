@@ -56,8 +56,7 @@
     "dog" (println "It's a dog")
     "cat" (println "It's a cat")
     "monkey" (println "It's a monkey")
-    
-  )
+    )
   )
 (condCase "dog")
 
