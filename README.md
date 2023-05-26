@@ -73,3 +73,53 @@
 
 (condCond 120)
 ```
+### Loops
+```clj
+(defn Loop
+  []
+  (println "/nLoop:")
+  (loop [x 0]
+    (when (< x 10)
+      (println x)
+      (recur (inc x))
+    )
+  )
+)
+
+(Loop)
+
+(defn DoTimes
+  []
+  (println "\n DoTimes Loop:")
+  (dotimes [x 10]
+    (println x)  
+  )
+)
+
+(DoTimes)
+
+(defn WhileDo
+  [count]
+  (println "\n WhileDo loop:")
+  (def x (atom 0))
+  (while (< @x count)
+    (do
+      (println "This is the")
+      (println "Count:" @x)
+      (swap! x inc)
+    )
+  )
+)
+
+(WhileDo 12)
+
+(defn DoSeq
+  [seq]
+  (println "/nDo Seq:")
+  (doseq [x seq]
+    (println (inc x))
+  )
+)
+
+(DoSeq[1 2 3 4 5])
+```
