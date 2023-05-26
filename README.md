@@ -123,3 +123,47 @@
 
 (DoSeq[1 2 3 4 5])
 ```
+
+### Atoms
+```clj
+(defn Atoms
+  []
+  (println "\nAtoms")
+  (def amount (atom 100))
+  (swap! amount inc)
+  (println @amount)
+  (reset! amount 110)
+  (println @amount)
+  (compare-and-set! amount 110 120)
+  (println @amount)
+  (compare-and-set! amount 100 150)
+  (println @amount)
+)
+
+(Atoms)
+```
+### Sequences
+```clj
+(defn Seq
+  []
+  (def colors (seq ["red" "green" "blue"]))
+  (println colors)
+
+  (println (cons "yellow" colors))
+  (println (cons colors "yellow"))
+
+  ;; conj appends to the sequence according to ds used, for vector in start, for seq or list in front
+  (println (conj colors "yellow"))
+  (println (conj ["red", "green", "blue"] "yellow"))
+
+  (println (concat colors ["red" "black"]))
+  (println (distinct (seq [1 2 3 3 3 4 4 5 5 5 5])))
+  (println (reverse colors))
+
+  (println (sort (seq [1 2 3 3 3 4 4 5 5 5 5])))
+
+  (println (first colors))
+  (println (rest colors))
+  (println (last colors))
+)
+```
