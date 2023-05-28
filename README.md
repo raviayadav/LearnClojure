@@ -167,3 +167,25 @@
   (println (last colors))
 )
 ```
+### Structs
+```clj
+(defn Pets
+  []
+  (defstruct pet :PetName :PetType)
+  (def myPet (struct pet "Fido" "Dog"))
+  (println myPet)
+
+  (def myOtherPet (struct-map pet :PetName "Fifi" :PetType "Cat"))
+  (println myOtherPet)
+  (println (:PetName myPet))
+  (println (:PetType myOtherPet))
+
+  (def myNewPet (assoc myPet :PetName "Max"))
+  (println myNewPet)
+
+  (def myOtherNewPet (assoc myOtherPet :PetAge 10))
+  (println myOtherNewPet)
+)
+
+(Pets)
+```
